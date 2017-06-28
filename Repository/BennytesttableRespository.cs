@@ -5,6 +5,7 @@ using Dapper;
 using System.Data;
 using Npgsql;
 using ASPCoreSample.Models;
+using System;
 
 namespace ASPCoreSample.Repository
 {
@@ -28,7 +29,14 @@ namespace ASPCoreSample.Repository
         {
             using (IDbConnection dbConnection = Connection)
             {
-                dbConnection.Open();
+                try
+                {
+                    dbConnection.Open();
+                }
+                catch (Exception ex)
+                {
+                    string a = "";
+                }
                 return dbConnection.Query<Bennytesttable>("SELECT * FROM bennytesttable");
             }
         }
