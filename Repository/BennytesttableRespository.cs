@@ -32,14 +32,5 @@ namespace ASPCoreSample.Repository
                 return dbConnection.Query<Bennytesttable>("SELECT * FROM bennytesttable");
             }
         }
-
-        public Bennytesttable FindByID(int id)
-        {
-            using (IDbConnection dbConnection = Connection)
-            {
-                dbConnection.Open();
-                return dbConnection.Query<Bennytesttable>("SELECT * FROM bennytesttable WHERE id = @Id", new { Id = id }).FirstOrDefault();
-            }
-        }
     }
 }
